@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>艺术分镜师 - 林小雨</title>
+    <title>艺术分镜师 - 作品集</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,178 +186,22 @@
             color: var(--primary-color);
         }
 
-        /* 头部区域 - 插画风格 */
-        #hero {
-            display: flex;
-            align-items: center;
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .tagline {
-            font-size: 2rem;
-            color: var(--primary-color);
-            font-family: 'Caveat', cursive;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-        }
-
-        .avatar-frame {
-            padding: 20px;
-            background-color: white;
-            position: relative;
-            transform: rotate(3deg);
-            animation: float 6s ease-in-out infinite;
-            border: 3px solid var(--dark-color);
-            box-shadow: 8px 8px 0 var(--accent-color);
-        }
-
-        .avatar {
-            width: 100%;
-            display: block;
-            border: 2px solid var(--dark-color);
-            position: relative;
-            background: var(--sketch-bg);
-        }
-
-        .hero-deco {
-            position: absolute;
-            z-index: -1;
-        }
-
-        .deco-1 {
-            top: -30px;
-            left: -30px;
-            width: 80px;
-            height: 80px;
-            background-color: var(--accent-color);
-            transform: rotate(45deg);
-        }
-
-        .deco-2 {
-            bottom: -30px;
-            right: -30px;
-            width: 60px;
-            height: 60px;
-            border: 8px solid var(--secondary-color);
-            transform: rotate(25deg);
-        }
-
-        .deco-3 {
-            top: 30px;
-            right: -50px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-        }
-
-        /* 关于我 */
-        #about {
-            background-color: rgba(183, 192, 217, 0.1);
-        }
-
-        .about-content {
-            display: flex;
-            gap: 4rem;
-        }
-
-        .about-text {
-            flex: 1.5;
-        }
-
-        .art-traits {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .trait {
-            padding: 0.8rem 1.5rem;
-            background-color: white;
-            border: 2px solid var(--dark-color);
-            box-shadow: 3px 3px 0 var(--accent-color);
-            font-family: 'Caveat', cursive;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-        }
-
-        .trait:hover {
-            transform: rotate(-2deg);
-            background-color: var(--accent-color);
-            box-shadow: 5px 5px 0 var(--primary-color);
-        }
-
-        .art-tools {
-            flex: 1;
-            background-color: white;
-            padding: 2rem;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .tool-item {
-            text-align: center;
-            padding: 1rem;
-            border: 1px dashed var(--medium-color);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .tool-item:hover {
-            background-color: rgba(255, 209, 102, 0.2);
-            border: 1px solid var(--accent-color);
-            transform: scale(1.05);
-        }
-
-        .tool-icon {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            color: var(--dark-color);
-        }
-
-        .tool-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* 作品集 */
+        /* 作品集视频部分 - 艺术化设计 */
         .portfolio {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
             margin-top: 2rem;
         }
 
         .portfolio-item {
             background-color: white;
             position: relative;
-            padding: 1.5rem;
-            height: 300px;
             overflow: hidden;
             transition: all 0.4s;
             border: 2px solid var(--dark-color);
             box-shadow: 5px 5px 0 var(--medium-color);
+            border-radius: 8px;
         }
 
         .portfolio-item:hover {
@@ -365,8 +209,60 @@
             box-shadow: 10px 10px 0 var(--primary-color);
         }
 
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            cursor: pointer;
+            background-color: var(--dark-color);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .portfolio-item:hover .video-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 0 6px rgba(255, 107, 107, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.4);
+        }
+
+        .video-content {
+            padding: 1.5rem;
+            background-color: white;
+        }
+
         .portfolio-item .project-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-family: 'Caveat', cursive;
             margin-bottom: 0.5rem;
             position: relative;
@@ -378,197 +274,195 @@
             position: absolute;
             left: 0;
             bottom: -3px;
-            width: 100%;
+            width: 50%;
             height: 4px;
             background-color: var(--secondary-color);
+            transition: all 0.4s;
         }
 
-        .portfolio-image {
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .portfolio-item:hover .project-title:after {
             width: 100%;
-            height: 70%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.9;
-            transition: all 0.4s ease;
-            clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
         }
 
-        .portfolio-item:hover .portfolio-image {
-            clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+        .project-category {
+            display: inline-block;
+            background-color: var(--accent-color);
+            padding: 3px 10px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            margin-left: 10px;
         }
 
-        .portfolio-item .project-desc {
-            position: relative;
-            z-index: 2;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 0.5rem;
+        .project-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 0.8rem;
+            color: #555;
+        }
+
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             margin-top: 1rem;
         }
 
-        /* 联系方式 */
-        #contact {
-            background: linear-gradient(135deg, rgba(183, 192, 217, 0.1) 0%, rgba(247, 247, 255, 0.8) 100%);
-            padding-bottom: 100px;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background-color: white;
-            padding: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px dashed var(--medium-color);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--light-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-right: 1rem;
-            border: 2px solid var(--primary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
+        .video-tag {
+            background-color: rgba(78, 205, 196, 0.15);
             color: var(--dark-color);
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* 视频模态框 - 沉浸式观看体验 */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .video-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-modal-content {
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        #videoPlayer {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            background-color: black;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .close-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .video-info {
+            padding: 15px 10px 0;
+            color: var(--dark-color);
+        }
+
+        .video-info-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            align-items: center;
+        }
+
+        .custom-controls {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            border: 2px solid var(--dark-color);
+            gap: 15px;
         }
 
-        .social-link:hover {
-            transform: scale(1.1) rotate(5deg);
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-family: 'Caveat', cursive;
-            font-size: 1.3rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--medium-color);
-            border-radius: 0;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 3px 3px 0 var(--secondary-color);
-        }
-
-        button[type="submit"] {
-            background-color: var(--secondary-color);
-            color: white;
-            border: 2px solid var(--dark-color);
-            padding: 0.8rem 2.5rem;
-            font-family: 'Caveat', cursive;
-            font-size: 1.4rem;
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
             cursor: pointer;
-            position: relative;
             transition: all 0.3s;
-            box-shadow: 4px 4px 0 var(--dark-color);
         }
 
-        button[type="submit"]:hover {
-            background-color: var(--primary-color);
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 var(--dark-color);
+        .control-btn:hover {
+            transform: scale(1.1);
+            color: var(--dark-color);
         }
 
-        /* 动画效果 */
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(3deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(-1deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(3deg);
-            }
+        .progress-container {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0 10px;
+            cursor: pointer;
         }
 
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+        .progress-bar {
+            height: 100%;
+            background-color: var(--secondary-color);
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .time {
+            font-size: 0.9rem;
+            color: #777;
+            width: 80px;
+            text-align: center;
         }
 
         /* 响应式设计 */
         @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
+            .portfolio {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
-            .about-content {
-                flex-direction: column;
+            h1 {
+                font-size: 4rem;
             }
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
             
             h2 {
                 font-size: 2.5rem;
+            }
+            
+            .portfolio {
+                grid-template-columns: 1fr;
             }
             
             .nav-container {
@@ -595,194 +489,92 @@
                 林小雨
             </a>
             <ul class="nav-links">
-                <li><a href="#hero">首页</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#portfolio">作品集</a></li>
-                <li><a href="#education">教育</a></li>
-                <li><a href="#contact">联系方式</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">关于我</a></li>
+                <li><a href="#">作品集</a></li>
+                <li><a href="#">教育</a></li>
+                <li><a href="#">联系方式</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 头部区域 -->
-    <section id="hero" class="artistic-section">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>林小雨</h1>
-                    <p class="tagline">用分镜编织动画的梦想</p>
-                    <p>游戏动画分镜师 & 插画师 | 中央美术学院大三学生</p>
-                    <p>我擅长将游戏故事转化为视觉叙事，用分镜头剧本塑造情感体验和节奏张力。我的作品融合了东方美学和现代动画语言，创造出独特的视觉世界。</p>
-                </div>
-                <div class="hero-image">
-                    <div class="avatar-frame sketch-border">
-                        <div class="avatar" style="height: 350px; background: linear-gradient(to right, #f8bbd0, #e1bee7);"></div>
-                    </div>
-                    <div class="hero-deco deco-1"></div>
-                    <div class="hero-deco deco-2"></div>
-                    <div class="hero-deco deco-3"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 关于我 -->
-    <section id="about" class="artistic-section">
-        <div class="container">
-            <h2>关于我</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>我叫林小雨，中央美术学院动画系大三学生，专业方向是游戏动画分镜设计。从小热爱绘画和动画的我，梦想是成为优秀的游戏分镜导演，创造打动人心的视觉故事。</p>
-                    <p>我的艺术风格深受传统山水画和现代漫画的双重影响。我擅长用动态构图和流畅的视觉语言，将抽象的故事节奏转化为具体的图像序列。在我的分镜作品中，你能看到诗意的镜头运动、情绪化的光影设计和独特的节奏感。</p>
-                    
-                    <h3>我的艺术特质</h3>
-                    <div class="art-traits">
-                        <div class="trait">镜头语言大师</div>
-                        <div class="trait">节奏把控者</div>
-                        <div class="trait">动态构图探索者</div>
-                        <div class="trait">情感视觉化专家</div>
-                        <div class="trait">东方美学演绎者</div>
-                        <div class="trait">跨媒介叙事者</div>
-                    </div>
-                    
-                    <p>我认为好的分镜设计是艺术性和技术性的完美平衡。我始终追求让每个镜头在服务故事之余，也拥有独立的审美价值。无论是游戏动画还是影视作品，我都致力于创造有深度、有温度、有诗意的视觉叙事。</p>
-                </div>
-                
-                <div class="art-tools sketch-border">
-                    <h3>我的艺术工具箱</h3>
-                    <div class="tools-grid">
-                        <div class="tool-item">
-                            <div class="tool-icon"><i class="fas fa-pencil-alt"></i></div>
-                            <div class="tool-name">Storyboard Pro</div>
-                        </div>
-                        <div class="tool-item">
-                            <div class="tool-icon"><i class="fas fa-brush"></i></div>
-                            <div class="tool-name">Photoshop</div>
-                        </div>
-                        <div class="tool-item">
-                            <div class="tool-icon"><i class="fas fa-film"></i></div>
-                            <div class="tool-name">Premiere Pro</div>
-                        </div>
-                        <div class="tool-item">
-                            <div class="tool-icon"><i class="fas fa-cube"></i></div>
-                            <div class="tool-name">Blender</div>
-                        </div>
-                        <div class="tool-item">
-                            <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
-                            <div class="tool-name">Procreate</div>
-                        </div>
-                        <div class="tool-item">
-                            <div class="tool-icon"><i class="fas fa-desktop"></i></div>
-                            <div class="tool-name">Clip Studio</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 作品集 -->
+    <!-- 作品集视频展示区 -->
     <section id="portfolio" class="artistic-section">
         <div class="container">
-            <h2>分镜作品集</h2>
+            <h2>动画分镜作品集</h2>
             <div class="portfolio">
+                <!-- 项目 1 -->
                 <div class="portfolio-item sketch-border">
-                    <h3 class="project-title">水墨江湖</h3>
-                    <p>武侠游戏开场动画分镜</p>
-                    <div class="project-desc">
-                        <p>中国风武侠游戏开场动画，采用传统水墨与现代动画技术的融合，讲述一位侠客的江湖之路</p>
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" class="video-thumbnail" alt="水墨江湖">
+                        <div class="play-button" data-video-id="project1">
+                            <i class="fas fa-play"></i>
+                        </div>
                     </div>
-                    <div class="portfolio-image" style="background: linear-gradient(to right, #a7c0cd, #4b636e);"></div>
-                </div>
-                
-                <div class="portfolio-item sketch-border">
-                    <h3 class="project-title">梦境边缘</h3>
-                    <p>科幻冒险游戏过场动画</p>
-                    <div class="project-desc">
-                        <p>探索梦境与现实的边界，营造超现实主义视觉体验，通过非线性叙事展现主角的内心世界</p>
+                    <div class="video-content">
+                        <h3 class="project-title">水墨江湖 <span class="project-category">武侠游戏开场</span></h3>
+                        <p class="project-desc">中国风武侠游戏开场动画，采用传统水墨与现代动画技术的融合，讲述一位侠客的江湖之路。</p>
+                        <div class="video-tags">
+                            <span class="video-tag">分镜脚本</span>
+                            <span class="video-tag">动态构图</span>
+                            <span class="video-tag">水墨风格</span>
+                        </div>
                     </div>
-                    <div class="portfolio-image" style="background: linear-gradient(to right, #b3e5fc, #81d4fa);"></div>
                 </div>
-                
-                <div class="portfolio-item sketch-border">
-                    <h3 class="project-title">神木之歌</h3>
-                    <p>民族主题动画短片</p>
-                    <div class="project-desc">
-                        <p>西南少数民族文化元素与现代动画的碰撞，讲述人与自然和谐共生的生态主题</p>
-                    </div>
-                    <div class="portfolio-image" style="background: linear-gradient(to right, #a5d6a7, #66bb6a);"></div>
-                </div>
-                
-                <div class="portfolio-item sketch-border">
-                    <h3 class="project-title">像素心跳</h3>
-                    <p>复古游戏风格动画</p>
-                    <div class="project-desc">
-                        <p>融合8-bit像素美学与现代动画技术的实验性作品，探索复古与现代之间的视觉张力</p>
-                    </div>
-                    <div class="portfolio-image" style="background: linear-gradient(to right, #e1bee7, #ba68c8);"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 教育背景 -->
-    <section id="education" class="artistic-section">
-        <div class="container">
-            <h2>教育背景</h2>
-            <div class="about-content" style="margin-top: 2rem;">
-                <div class="about-text" style="flex: 1.5;">
-                    <div style="background-color: white; padding: 2rem;">
-                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
-                            <i class="fas fa-university"></i> 中央美术学院
-                        </h3>
-                        <p style="font-size: 1.5rem; margin-bottom: 1rem;">动画系 · 游戏动画分镜设计方向 (2020 - 至今)</p>
-                        
-                        <div style="margin-top: 2rem;">
-                            <h4 style="font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem;">主修课程</h4>
-                            <ul style="list-style-type: none;">
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-paint-brush" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                    动画分镜头脚本设计
-                                </li>
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-film" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                    影视语言与视觉叙事
-                                </li>
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-gamepad" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                    游戏动画流程与开发
-                                </li>
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-drafting-compass" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                    动态构图设计
-                                </li>
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-book-open" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                    中国美术史与动画美学
-                                </li>
-                            </ul>
+                <!-- 项目 2 -->
+                <div class="portfolio-item sketch-border">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1536240478700-b86907070a29?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" class="video-thumbnail" alt="梦境边缘">
+                        <div class="play-button" data-video-id="project2">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="project-title">梦境边缘 <span class="project-category">科幻游戏过场</span></h3>
+                        <p class="project-desc">探索梦境与现实的边界，营造超现实主义视觉体验，通过非线性叙事展现主角的内心世界。</p>
+                        <div class="video-tags">
+                            <span class="video-tag">视觉叙事</span>
+                            <span class="video-tag">超现实</span>
+                            <span class="video-tag">节奏把控</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="art-tools sketch-border" style="flex: 1;">
-                    <h3>艺术荣誉</h3>
-                    <div style="margin-top: 1.5rem;">
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4>第15届全国大学生动画大赛</h4>
-                            <p>分镜设计类二等奖 (2022)</p>
+
+                <!-- 项目 3 -->
+                <div class="portfolio-item sketch-border">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1577741314755-048940c4f6e5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" class="video-thumbnail" alt="神木之歌">
+                        <div class="play-button" data-video-id="project3">
+                            <i class="fas fa-play"></i>
                         </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4>中央美术学院年度创作展</h4>
-                            <p>最佳视觉叙事奖 (2023)</p>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="project-title">神木之歌 <span class="project-category">民族主题动画</span></h3>
+                        <p class="project-desc">西南少数民族文化元素与现代动画的碰撞，讲述人与自然和谐共生的生态主题。</p>
+                        <div class="video-tags">
+                            <span class="video-tag">民族元素</span>
+                            <span class="video-tag">传统文化</span>
+                            <span class="video-tag">生态主题</span>
                         </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4>中国青年动画艺术家支持计划</h4>
-                            <p>新锐艺术家代表 (2023)</p>
+                    </div>
+                </div>
+
+                <!-- 项目 4 -->
+                <div class="portfolio-item sketch-border">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1533285276845-07f6bbce9d58?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" class="video-thumbnail" alt="像素心跳">
+                        <div class="play-button" data-video-id="project4">
+                            <i class="fas fa-play"></i>
                         </div>
-                        <div>
-                            <h4>中央美院奖学金</h4>
-                            <p>连续三学年获奖</p>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="project-title">像素心跳 <span class="project-category">复古风格动画</span></h3>
+                        <p class="project-desc">融合8-bit像素美学与现代动画技术的实验性作品，探索复古与现代之间的视觉张力。</p>
+                        <div class="video-tags">
+                            <span class="video-tag">像素艺术</span>
+                            <span class="video-tag">实验性</span>
+                            <span class="video-tag">复古美学</span>
                         </div>
                     </div>
                 </div>
@@ -790,112 +582,201 @@
         </div>
     </section>
 
-    <!-- 联系方式 -->
-    <section id="contact" class="artistic-section">
-        <div class="container">
-            <h2>联系我</h2>
-            <div class="contact-container">
-                <div class="contact-info sketch-border">
-                    <h3>与我取得联系</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>邮箱</h4>
-                            <p>linxiaoyu@artstudio.com</p>
-                        </div>
+    <!-- 视频模态框 -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <span class="close-button" id="closeVideo">
+                <i class="fas fa-times"></i>
+            </span>
+            <video id="videoPlayer" controls>
+                <!-- 视频源将在JavaScript中动态设置 -->
+            </video>
+            
+            <div class="video-controls">
+                <div class="custom-controls">
+                    <button class="control-btn" id="playPauseBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress-bar" id="progressBar"></div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-weixin"></i>
-                        </div>
-                        <div>
-                            <h4>微信</h4>
-                            <p>Art_Xiaoyu</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>地点</h4>
-                            <p>中国北京市中央美术学院</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-behance"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-artstation"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                    </div>
+                    <div class="time" id="currentTime">00:00</div>
+                    <div class="time" id="duration">00:00</div>
                 </div>
                 
-                <div class="contact-form sketch-border">
-                    <h3>给我留言</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">主题</label>
-                            <input type="text" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">留言内容</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit">发送消息</button>
-                    </form>
+                <div class="custom-controls">
+                    <button class="control-btn" id="volumeBtn">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
                 </div>
             </div>
+            
+            <div class="video-info" id="videoInfo">
+                <h3 class="video-info-title">水墨江湖</h3>
+                <p>2023年作品 | 时长：2分18秒 | 使用软件：Storyboard Pro, After Effects</p>
+            </div>
         </div>
-    </section>
+    </div>
 
     <script>
-        // 表单提交处理
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('您的留言已收到，我会尽快给您回复！');
-            this.reset();
-        });
-        
-        // 滚动动画效果
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.artistic-section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+        // 视频数据 - 在实际使用中替换为您自己的视频URL
+        const videos = [
+            {
+                id: "project1",
+                src: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+                title: "水墨江湖",
+                description: "武侠游戏开场动画，采用传统水墨与现代动画技术的融合",
+                duration: "02:18",
+                software: "Storyboard Pro, After Effects",
+                year: "2023"
+            },
+            {
+                id: "project2",
+                src: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+                title: "梦境边缘",
+                description: "探索梦境与现实的边界，营造超现实主义视觉体验",
+                duration: "01:45",
+                software: "Photoshop, Premiere Pro",
+                year: "2022"
+            },
+            {
+                id: "project3",
+                src: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+                title: "神木之歌",
+                description: "西南少数民族文化元素与现代动画的碰撞作品",
+                duration: "03:22",
+                software: "Procreate, Final Cut Pro",
+                year: "2023"
+            },
+            {
+                id: "project4",
+                src: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+                title: "像素心跳",
+                description: "融合8-bit像素美学与现代动画技术的实验性作品",
+                duration: "02:50",
+                software: "Clip Studio Paint, Adobe Animate",
+                year: "2022"
+            }
+        ];
+
+        // 视频播放器元素
+        const videoModal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const closeButton = document.getElementById('closeVideo');
+        const playButtons = document.querySelectorAll('.play-button');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+        const videoInfo = document.getElementById('videoInfo');
+        const videoInfoTitle = document.querySelector('.video-info-title');
+
+        // 打开视频模态框
+        function openVideoModal(videoId) {
+            const video = videos.find(v => v.id === videoId);
+            if (video) {
+                videoPlayer.src = video.src;
+                videoInfoTitle.textContent = video.title;
+                videoInfo.innerHTML = `
+                    <h3 class="video-info-title">${video.title}</h3>
+                    <p>${video.year}年作品 | 时长：${video.duration} | 使用软件：${video.software}</p>
+                    <p class="project-desc" style="margin-top: 10px;">${video.description}</p>
+                `;
+                videoModal.classList.add('active');
                 
-                if (sectionTop < windowHeight * 0.75) {
-                    section.classList.add('animated');
-                }
+                // 视频加载后设置元数据
+                videoPlayer.addEventListener('loadedmetadata', function() {
+                    const minutes = Math.floor(videoPlayer.duration / 60);
+                    const seconds = Math.floor(videoPlayer.duration % 60);
+                    durationDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                });
+            }
+        }
+
+        // 关闭视频模态框
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            progressBar.style.width = '0%';
+            currentTimeDisplay.textContent = '00:00';
+        }
+
+        // 播放/暂停视频
+        function togglePlay() {
+            if (videoPlayer.paused) {
+                videoPlayer.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                videoPlayer.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        // 更新进度条
+        function updateProgress() {
+            const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+            progressBar.style.width = `${percent}%`;
+            
+            const currentMinutes = Math.floor(videoPlayer.currentTime / 60);
+            const currentSeconds = Math.floor(videoPlayer.currentTime % 60);
+            currentTimeDisplay.textContent = `${String(currentMinutes).padStart(2, '0')}:${String(currentSeconds).padStart(2, '0')}`;
+        }
+
+        // 设置进度
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = videoPlayer.duration;
+            
+            videoPlayer.currentTime = (clickX / width) * duration;
+        }
+
+        // 设置音量
+        function setVolume() {
+            videoPlayer.volume = volumeSlider.value;
+            if (videoPlayer.volume > 0.5) {
+                volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else if (videoPlayer.volume > 0) {
+                volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+            } else {
+                volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        }
+
+        // 事件监听器
+        closeButton.addEventListener('click', closeVideoModal);
+
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        playButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                openVideoModal(videoId);
             });
         });
-        
-        // 装饰元素随机动画
-        const decos = document.querySelectorAll('.hero-deco');
-        decos.forEach((deco, index) => {
-            deco.style.animation = `float ${6 + index}s ease-in-out infinite`;
+
+        videoPlayer.addEventListener('click', togglePlay);
+        playPauseBtn.addEventListener('click', togglePlay);
+
+        videoPlayer.addEventListener('timeupdate', updateProgress);
+        videoPlayer.addEventListener('ended', () => {
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
         });
+
+        progressContainer.addEventListener('click', setProgress);
+        volumeSlider.addEventListener('input', setVolume);
+
+        // 初始化
+        volumeSlider.value = videoPlayer.volume;
     </script>
 </body>
 </html>
