@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艺术分镜师 - 林小雨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFD166;
+            --dark-color: #2B2D42;
+            --light-color: #F7F7FF;
+            --medium-color: #B8C0D9;
+            --sketch-bg: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 4px, #e6e6e6 4px, #e6e6e6 8px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8C0D9' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .artistic-section {
+            min-height: 100vh;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sketch-border {
+            border: 3px solid var(--dark-color);
+            position: relative;
+            box-shadow: 6px 6px 0 rgba(43, 45, 66, 0.2);
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .sketch-border:hover {
+            box-shadow: 8px 8px 0 var(--primary-color);
+            transform: translate(-2px, -2px);
+        }
+
+        .sketch-border:before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 1px dashed var(--medium-color);
+            pointer-events: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: var(--dark-color);
+            text-shadow: 3px 3px 0 var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--secondary-color);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 导航栏样式 - 手绘风格 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(247, 247, 255, 0.95);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--dark-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+            transform: rotate(-15deg);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0.5rem 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 头部区域 - 插画风格 */
+        #hero {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-family: 'Caveat', cursive;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .avatar-frame {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            transform: rotate(3deg);
+            animation: float 6s ease-in-out infinite;
+            border: 3px solid var(--dark-color);
+            box-shadow: 8px 8px 0 var(--accent-color);
+        }
+
+        .avatar {
+            width: 100%;
+            display: block;
+            border: 2px solid var(--dark-color);
+            position: relative;
+            background: var(--sketch-bg);
+        }
+
+        .hero-deco {
+            position: absolute;
+            z-index: -1;
+        }
+
+        .deco-1 {
+            top: -30px;
+            left: -30px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+
+        .deco-2 {
+            bottom: -30px;
+            right: -30px;
+            width: 60px;
+            height: 60px;
+            border: 8px solid var(--secondary-color);
+            transform: rotate(25deg);
+        }
+
+        .deco-3 {
+            top: 30px;
+            right: -50px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        /* 关于我 */
+        #about {
+            background-color: rgba(183, 192, 217, 0.1);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1.5;
+        }
+
+        .art-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .trait {
+            padding: 0.8rem 1.5rem;
+            background-color: white;
+            border: 2px solid var(--dark-color);
+            box-shadow: 3px 3px 0 var(--accent-color);
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .trait:hover {
+            transform: rotate(-2deg);
+            background-color: var(--accent-color);
+            box-shadow: 5px 5px 0 var(--primary-color);
+        }
+
+        .art-tools {
+            flex: 1;
+            background-color: white;
+            padding: 2rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .tool-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px dashed var(--medium-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background-color: rgba(255, 209, 102, 0.2);
+            border: 1px solid var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* 作品集 */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background-color: white;
+            position: relative;
+            padding: 1.5rem;
+            height: 300px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 2px solid var(--dark-color);
+            box-shadow: 5px 5px 0 var(--medium-color);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 10px 0 var(--primary-color);
+        }
+
+        .portfolio-item .project-title {
+            font-size: 1.5rem;
+            font-family: 'Caveat', cursive;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .portfolio-item .project-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        .portfolio-image {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9;
+            transition: all 0.4s ease;
+            clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+        }
+
+        .portfolio-item .project-desc {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        /* 联系方式 */
+        #contact {
+            background: linear-gradient(135deg, rgba(183, 192, 217, 0.1) 0%, rgba(247, 247, 255, 0.8) 100%);
+            padding-bottom: 100px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--medium-color);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dark-color);
+        }
+
+        .social-link:hover {
+            transform: scale(1.1) rotate(5deg);
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--medium-color);
+            border-radius: 0;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 3px 3px 0 var(--secondary-color);
+        }
+
+        button[type="submit"] {
+            background-color: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--dark-color);
+            padding: 0.8rem 2.5rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 var(--dark-color);
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-color);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-color);
+        }
+
+        /* 动画效果 */
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(3deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(-1deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(3deg);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-palette"></i>
+                林小雨
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#education">教育</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <section id="hero" class="artistic-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>林小雨</h1>
+                    <p class="tagline">用分镜编织动画的梦想</p>
+                    <p>游戏动画分镜师 & 插画师 | 中央美术学院大三学生</p>
+                    <p>我擅长将游戏故事转化为视觉叙事，用分镜头剧本塑造情感体验和节奏张力。我的作品融合了东方美学和现代动画语言，创造出独特的视觉世界。</p>
+                </div>
+                <div class="hero-image">
+                    <div class="avatar-frame sketch-border">
+                        <div class="avatar" style="height: 350px; background: linear-gradient(to right, #f8bbd0, #e1bee7);"></div>
+                    </div>
+                    <div class="hero-deco deco-1"></div>
+                    <div class="hero-deco deco-2"></div>
+                    <div class="hero-deco deco-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="artistic-section">
+        <div class="container">
+            <h2>关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我叫林小雨，中央美术学院动画系大三学生，专业方向是游戏动画分镜设计。从小热爱绘画和动画的我，梦想是成为优秀的游戏分镜导演，创造打动人心的视觉故事。</p>
+                    <p>我的艺术风格深受传统山水画和现代漫画的双重影响。我擅长用动态构图和流畅的视觉语言，将抽象的故事节奏转化为具体的图像序列。在我的分镜作品中，你能看到诗意的镜头运动、情绪化的光影设计和独特的节奏感。</p>
+                    
+                    <h3>我的艺术特质</h3>
+                    <div class="art-traits">
+                        <div class="trait">镜头语言大师</div>
+                        <div class="trait">节奏把控者</div>
+                        <div class="trait">动态构图探索者</div>
+                        <div class="trait">情感视觉化专家</div>
+                        <div class="trait">东方美学演绎者</div>
+                        <div class="trait">跨媒介叙事者</div>
+                    </div>
+                    
+                    <p>我认为好的分镜设计是艺术性和技术性的完美平衡。我始终追求让每个镜头在服务故事之余，也拥有独立的审美价值。无论是游戏动画还是影视作品，我都致力于创造有深度、有温度、有诗意的视觉叙事。</p>
+                </div>
+                
+                <div class="art-tools sketch-border">
+                    <h3>我的艺术工具箱</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <div class="tool-icon"><i class="fas fa-pencil-alt"></i></div>
+                            <div class="tool-name">Storyboard Pro</div>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon"><i class="fas fa-brush"></i></div>
+                            <div class="tool-name">Photoshop</div>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon"><i class="fas fa-film"></i></div>
+                            <div class="tool-name">Premiere Pro</div>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon"><i class="fas fa-cube"></i></div>
+                            <div class="tool-name">Blender</div>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
+                            <div class="tool-name">Procreate</div>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon"><i class="fas fa-desktop"></i></div>
+                            <div class="tool-name">Clip Studio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品集 -->
+    <section id="portfolio" class="artistic-section">
+        <div class="container">
+            <h2>分镜作品集</h2>
+            <div class="portfolio">
+                <div class="portfolio-item sketch-border">
+                    <h3 class="project-title">水墨江湖</h3>
+                    <p>武侠游戏开场动画分镜</p>
+                    <div class="project-desc">
+                        <p>中国风武侠游戏开场动画，采用传统水墨与现代动画技术的融合，讲述一位侠客的江湖之路</p>
+                    </div>
+                    <div class="portfolio-image" style="background: linear-gradient(to right, #a7c0cd, #4b636e);"></div>
+                </div>
+                
+                <div class="portfolio-item sketch-border">
+                    <h3 class="project-title">梦境边缘</h3>
+                    <p>科幻冒险游戏过场动画</p>
+                    <div class="project-desc">
+                        <p>探索梦境与现实的边界，营造超现实主义视觉体验，通过非线性叙事展现主角的内心世界</p>
+                    </div>
+                    <div class="portfolio-image" style="background: linear-gradient(to right, #b3e5fc, #81d4fa);"></div>
+                </div>
+                
+                <div class="portfolio-item sketch-border">
+                    <h3 class="project-title">神木之歌</h3>
+                    <p>民族主题动画短片</p>
+                    <div class="project-desc">
+                        <p>西南少数民族文化元素与现代动画的碰撞，讲述人与自然和谐共生的生态主题</p>
+                    </div>
+                    <div class="portfolio-image" style="background: linear-gradient(to right, #a5d6a7, #66bb6a);"></div>
+                </div>
+                
+                <div class="portfolio-item sketch-border">
+                    <h3 class="project-title">像素心跳</h3>
+                    <p>复古游戏风格动画</p>
+                    <div class="project-desc">
+                        <p>融合8-bit像素美学与现代动画技术的实验性作品，探索复古与现代之间的视觉张力</p>
+                    </div>
+                    <div class="portfolio-image" style="background: linear-gradient(to right, #e1bee7, #ba68c8);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育背景 -->
+    <section id="education" class="artistic-section">
+        <div class="container">
+            <h2>教育背景</h2>
+            <div class="about-content" style="margin-top: 2rem;">
+                <div class="about-text" style="flex: 1.5;">
+                    <div style="background-color: white; padding: 2rem;">
+                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-university"></i> 中央美术学院
+                        </h3>
+                        <p style="font-size: 1.5rem; margin-bottom: 1rem;">动画系 · 游戏动画分镜设计方向 (2020 - 至今)</p>
+                        
+                        <div style="margin-top: 2rem;">
+                            <h4 style="font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem;">主修课程</h4>
+                            <ul style="list-style-type: none;">
+                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                    <i class="fas fa-paint-brush" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
+                                    动画分镜头脚本设计
+                                </li>
+                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                    <i class="fas fa-film" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
+                                    影视语言与视觉叙事
+                                </li>
+                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                    <i class="fas fa-gamepad" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
+                                    游戏动画流程与开发
+                                </li>
+                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                    <i class="fas fa-drafting-compass" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
+                                    动态构图设计
+                                </li>
+                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                    <i class="fas fa-book-open" style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
+                                    中国美术史与动画美学
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="art-tools sketch-border" style="flex: 1;">
+                    <h3>艺术荣誉</h3>
+                    <div style="margin-top: 1.5rem;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4>第15届全国大学生动画大赛</h4>
+                            <p>分镜设计类二等奖 (2022)</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4>中央美术学院年度创作展</h4>
+                            <p>最佳视觉叙事奖 (2023)</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4>中国青年动画艺术家支持计划</h4>
+                            <p>新锐艺术家代表 (2023)</p>
+                        </div>
+                        <div>
+                            <h4>中央美院奖学金</h4>
+                            <p>连续三学年获奖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="artistic-section">
+        <div class="container">
+            <h2>联系我</h2>
+            <div class="contact-container">
+                <div class="contact-info sketch-border">
+                    <h3>与我取得联系</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>邮箱</h4>
+                            <p>linxiaoyu@artstudio.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <div>
+                            <h4>微信</h4>
+                            <p>Art_Xiaoyu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>地点</h4>
+                            <p>中国北京市中央美术学院</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-artstation"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form sketch-border">
+                    <h3>给我留言</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 表单提交处理
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('您的留言已收到，我会尽快给您回复！');
+            this.reset();
+        });
+        
+        // 滚动动画效果
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.artistic-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('animated');
+                }
+            });
+        });
+        
+        // 装饰元素随机动画
+        const decos = document.querySelectorAll('.hero-deco');
+        decos.forEach((deco, index) => {
+            deco.style.animation = `float ${6 + index}s ease-in-out infinite`;
+        });
+    </script>
+</body>
+</html>
